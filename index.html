@@ -7,10 +7,103 @@
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
     <style>
       h2 {
-        margin-top: 40px;  /* 섹션 간의 간격을 늘리기 위해 상단 여백 추가 */
+        margin-top: 40px;
+        margin-bottom: 12px;
       }
       p {
-        margin-bottom: 20px;  /* 각 문단 간 간격 추가 */
+        margin-bottom: 16px;
+      }
+
+      /* Project cards */
+      .project-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 16px;
+        margin-top: 12px;
+        margin-bottom: 24px;
+      }
+      .project-card {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 16px;
+        background: #fafafa;
+      }
+      .project-card h3 {
+        margin: 0 0 6px 0;
+        font-size: 0.95em;
+      }
+      .project-card p {
+        margin: 0 0 10px 0;
+        font-size: 0.85em;
+        color: #444;
+        line-height: 1.5;
+      }
+      .project-card .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tag {
+        background: #e8f0fe;
+        color: #1a56db;
+        border-radius: 4px;
+        padding: 2px 7px;
+        font-size: 0.75em;
+      }
+      .project-card a {
+        font-size: 0.82em;
+      }
+
+      /* Experience entries */
+      .exp-entry {
+        margin-bottom: 20px;
+      }
+      .exp-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        flex-wrap: wrap;
+        gap: 4px;
+      }
+      .exp-header .role {
+        font-weight: bold;
+      }
+      .exp-header .period {
+        color: #666;
+        font-size: 0.88em;
+        white-space: nowrap;
+      }
+      .exp-org {
+        color: #555;
+        font-size: 0.92em;
+        margin-bottom: 4px;
+      }
+      .exp-bullets {
+        margin: 4px 0 0 0;
+        padding-left: 18px;
+        font-size: 0.9em;
+        color: #333;
+      }
+      .exp-bullets li {
+        margin-bottom: 3px;
+        line-height: 1.5;
+      }
+      .nda-note {
+        font-style: italic;
+        color: #888;
+        font-size: 0.85em;
+      }
+
+      .skills-table {
+        font-size: 0.9em;
+        line-height: 1.8;
+      }
+      .skills-table td:first-child {
+        font-weight: bold;
+        padding-right: 12px;
+        white-space: nowrap;
+        vertical-align: top;
       }
     </style>
   </head>
@@ -19,21 +112,23 @@
       <tbody>
         <tr style="padding:0px">
           <td style="padding:0px">
+
+            <!-- Header: Name + Bio + Photo -->
             <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
               <tbody>
                 <tr style="padding:0px">
                   <td style="padding:2.5%;width:63%;vertical-align:middle">
-                    <p class="name" style="text-align: center;">
+                    <p class="name" style="text-align:center;">
                       Jaehoo Kim
                     </p>
                     <p>
-                      I'm an undergraduate in <a href="https://www.yonsei.ac.kr/sc/">Yonsei University</a> majoring in Computer Science.</a>
+                      I am an undergraduate at <a href="https://www.yonsei.ac.kr/sc/">Yonsei University</a> majoring in Computer Science.
                     </p>
                     <p>
-                      I'm interested in computer vision, machine learning, reinforcement learning, and natural language processing to solve real-world problems.
+                      I am drawn to Computer Vision because it provides clear, observable feedback — I can immediately and visibly verify how algorithmic improvements affect the output. Building on my background in engineering complex AI pipelines and multi-agent systems, I am now focusing on <strong>Computer Vision</strong>, with particular interest in <strong>Video-Language Understanding</strong> and <strong>Vision for Robotics</strong>. I aim to build models that seamlessly bridge logical reasoning with dynamic visual perception.
                     </p>
                     <p>
-                      I am currently exploring various fields of artificial intelligence, with a growing focus on Computer Vision. I am looking for research internship opportunities in Computer Vision.
+                      I am actively looking for <strong>Computer Vision research internship</strong> opportunities.
                     </p>
                     <p style="text-align:center">
                       <a href="mailto:wogn2001@yonsei.ac.kr">Email</a> &nbsp;/&nbsp;
@@ -42,79 +137,171 @@
                     </p>
                   </td>
                   <td style="padding:2.5%;width:40%;max-width:40%">
-                    <a href="images/jaehookim.jpg"><img style="width:100%;max-width:100%;object-fit:cover;border-radius:50%;" alt="profile photo" src="images/jaehookim.jpg" class="hoverZoomLink"></a>
+                    <a href="images/jaehookim.jpg">
+                      <img style="width:100%;max-width:100%;object-fit:cover;border-radius:50%;" alt="profile photo" src="images/jaehookim.jpg" class="hoverZoomLink">
+                    </a>
                   </td>
                 </tr>
               </tbody>
             </table>
+
+            <!-- Main content -->
             <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
               <tbody>
                 <tr>
                   <td style="padding:20px;width:100%;vertical-align:middle">
+
+                    <!-- Projects -->
+                    <h2>Projects</h2>
+                    <div class="project-grid">
+
+                      <div class="project-card">
+                        <h3>Identity-Preserving Image Generation</h3>
+                        <p>Fine-tuned a diffusion model to resolve demographic biases with custom mask generation and redesigned Transformer input architecture for multi-image conditioning.</p>
+                        <div class="tags">
+                          <span class="tag">Diffusion Models</span>
+                          <span class="tag">Computer Vision</span>
+                          <span class="tag">Fine-tuning</span>
+                        </div>
+                        <span style="font-size:0.82em;color:#999;">NDA — details abstracted</span>
+                      </div>
+
+                      <div class="project-card">
+                        <h3>Enderbuster: LLM Agent in Minecraft</h3>
+                        <p>LLM-driven autonomous agent that decomposes the high-level goal of "Defeating the Ender Dragon" into sequentially executable subgoals in Minecraft.</p>
+                        <div class="tags">
+                          <span class="tag">LLM Agents</span>
+                          <span class="tag">Task Planning</span>
+                        </div>
+                        <a href="https://github.com/parksungyongdev0101/Enderbuster">GitHub →</a>
+                      </div>
+
+                      <div class="project-card">
+                        <h3>Yakemon: Pokemon Battle RL Agent</h3>
+                        <p>Trained a reinforcement learning agent to play competitive Pokemon battles, developed as part of the YAICON project at YAI.</p>
+                        <div class="tags">
+                          <span class="tag">Reinforcement Learning</span>
+                          <span class="tag">Game AI</span>
+                        </div>
+                        <a href="https://github.com/Dindb-dong/Yakemon_RL">GitHub →</a>
+                      </div>
+
+                      <div class="project-card">
+                        <h3>Multimodal Content Generation Pipeline</h3>
+                        <p>Automated pipeline that extracts image and text from URLs, augments with RAG and web search, and generates human-like content via a multi-agent workflow.</p>
+                        <div class="tags">
+                          <span class="tag">Multimodal LLM</span>
+                          <span class="tag">RAG</span>
+                          <span class="tag">Multi-agent</span>
+                        </div>
+                        <span style="font-size:0.82em;color:#999;">DLI Lab, Yonsei</span>
+                      </div>
+
+                    </div>
+
+                    <!-- Research Experience -->
+                    <h2>Research Experience</h2>
+
+                    <div class="exp-entry">
+                      <div class="exp-header">
+                        <span class="role">Project Member</span>
+                        <span class="period">Jan 2026 – Feb 2026</span>
+                      </div>
+                      <div class="exp-org">NXN &nbsp;·&nbsp; Industry-Academic Cooperation via YAI</div>
+                      <ul class="exp-bullets">
+                        <li>Fine-tuned a state-of-the-art diffusion model to resolve demographic biases, significantly improving identity preservation in targeted image generation.</li>
+                        <li>Engineered a large-scale automated data collection and preprocessing pipeline, including custom mask generation for precise region-of-interest targeting.</li>
+                        <li>Redesigned the input architecture of Transformer-based models to optimize multi-image conditioning and feature extraction.</li>
+                      </ul>
+                      <p class="nda-note" style="margin-top:4px;">* Specific technical details are abstracted to comply with an NDA.</p>
+                    </div>
+
+                    <div class="exp-entry">
+                      <div class="exp-header">
+                        <span class="role">Research Intern</span>
+                        <span class="period">Jul 2025 – Dec 2025</span>
+                      </div>
+                      <div class="exp-org">Data &amp; Language Intelligence Lab &nbsp;·&nbsp; Yonsei University</div>
+                      <ul class="exp-bullets">
+                        <li>Engineered an automated Multimodal LLM pipeline extracting and processing image and text data from external URLs to generate human-like contents.</li>
+                        <li>Implemented a RAG architecture integrating local databases and dynamically generated web search queries to augment model context.</li>
+                        <li>Designed a multi-agent workflow for format-aware topic generation, content planning, and multi-query retrieval to enhance factual accuracy.</li>
+                      </ul>
+                    </div>
+
+                    <!-- Other Experience -->
+                    <h2>Other Experience</h2>
+
+                    <div class="exp-entry">
+                      <div class="exp-header">
+                        <span class="role">Member</span>
+                        <span class="period">Jan 2025 – Present</span>
+                      </div>
+                      <div class="exp-org">Yonsei Artificial Intelligence (YAI) &nbsp;·&nbsp; Yonsei University</div>
+                      <ul class="exp-bullets">
+                        <li>Weekly paper reading groups on Computer Vision and NLP.</li>
+                        <li>YAICON: trained a Pokemon battle RL agent (<a href="https://github.com/Dindb-dong/Yakemon_RL">link</a>) and built an LLM-driven autonomous Minecraft agent (<a href="https://github.com/parksungyongdev0101/Enderbuster">link</a>).</li>
+                      </ul>
+                    </div>
+
+                    <div class="exp-entry">
+                      <div class="exp-header">
+                        <span class="role">Military Police, Company Senior KATUSA</span>
+                        <span class="period">Feb 2023 – Aug 2024</span>
+                      </div>
+                      <div class="exp-org">Korean Augmentation To the United States Army &nbsp;·&nbsp; Camp Humphreys</div>
+                      <ul class="exp-bullets">
+                        <li>Led and managed a company of 80 soldiers as Senior KATUSA; advocated for their rights and welfare.</li>
+                        <li>Demonstrated cross-cultural communication and leadership in a joint US-ROK military environment.</li>
+                      </ul>
+                    </div>
+
+                    <div class="exp-entry">
+                      <div class="exp-header">
+                        <span class="role">Academic Committee Member</span>
+                        <span class="period">Mar 2022 – Dec 2022</span>
+                      </div>
+                      <div class="exp-org">Student Council &nbsp;·&nbsp; Dept. of Computer Science, Yonsei University</div>
+                      <ul class="exp-bullets">
+                        <li>Planned and executed academic projects and events for CS undergraduates.</li>
+                      </ul>
+                    </div>
+
+                    <!-- Education -->
                     <h2>Education</h2>
                     <p>
-                      <strong>B.S.</strong> in Computer Science, Yonsei University (Mar 2021 - Present)
-                    </p>
-                    <h2>Experience</h2>
-                    <p>
-                      <strong>NXN</strong> (Industry-Academic Cooperation via YAI) — Project Member (Jan 2026 - Feb 2026)<br>
-                      <em>* Specific technical details are abstracted to comply with a Non-Disclosure Agreement (NDA).</em><br>
-                      • Fine-tuned a state-of-the-art diffusion model to resolve demographic biases, significantly improving identity preservation in targeted image generation.<br>
-                      • Engineered a large-scale, automated data collection and preprocessing pipeline, including custom mask generation techniques for precise region-of-interest targeting.<br>
-                      • Redesigned the input architecture of Transformer-based models to optimize multi-image conditioning and feature extraction.
+                      <strong>B.S. in Computer Science</strong>, Yonsei University &nbsp;·&nbsp; Mar 2021 – Present<br>
+                      <span style="font-size:0.9em;color:#555;">Leave of absence for military service: Feb 2023 – Aug 2024</span>
                     </p>
 
-                    <p>
-                      <strong>Data &amp; Language Intelligence Lab</strong>, Yonsei University — Research Intern (Jul 2025 - Dec 2025)<br>
-                      • Engineered an automated Multimodal LLM pipeline that directly extracts and processes image and text data from external URLs to generate human-like contents.<br>
-                      • Implemented a RAG (Retrieval-Augmented Generation) architecture integrating local databases and dynamically generated web search queries to augment the model with accurate context.<br>
-                      • Designed a multi-agent workflow involving format-aware topic generation, content planning, and multi-query information retrieval to enhance output quality and factual accuracy.<br>
-                      • Iteratively optimized the system architecture and managed extensive API integrations, successfully adapting the pipeline to handle continuous requirement changes.
-                    </p>
-
-                    <p>
-                      <strong>Yonsei Artificial Intelligence (YAI)</strong>, Yonsei University — Member (Jan 2025 - Present)<br>
-                      • Developed a toy project focused on summarizing daily hot topic news using NLP techniques.<br>
-                      • Implemented an emotion-based background color adjustment system.<br>
-                      • Participated in weekly paper reading groups focusing on Computer Vision and Natural Language Processing.<br>
-                      • Trained a Pokemon battle agent using Reinforcement Learning for the YAICON project. (<a href="https://github.com/Dindb-dong/Yakemon_RL">link</a>)<br>
-                      • Developed an LLM-driven autonomous agent in Minecraft for the YAICON project, successfully decomposing the complex goal of 'Defeating the Ender Dragon' into sequentially executable subgoals. (<a href="https://github.com/parksungyongdev0101/Enderbuster">link</a>)
-                    </p>
-
-                    <p>
-                      <strong>Korean Augmentation To the United States Army</strong> — Military Police, Company Senior KATUSA (Feb 2023 - Aug 2024)<br>
-                      • Served as the Senior KATUSA, leading and managing a company of 80 soldiers while advocating for their rights and welfare.<br>
-                      • Demonstrated strong cross-cultural communication skills and leadership within a joint US-ROK military environment.
-                    </p>
-
-                    <p>
-                      <strong>Student Council, Academic Committee</strong> — Department of Computer Science, Yonsei University (Mar 2022 - Dec 2022)<br>
-                      • Planned and executed academic projects and events for computer science undergraduate students.<br>
-                      • Collaborated with other committees to foster and support the department community.
-                    </p>
-
-                    <h2>Skills &amp; Interests</h2>
-                    <p>
-                      <strong>Programming Languages:</strong> Python, C/C++<br>
-                      <strong>Languages:</strong> Korean, English (OPIc IH)<br>
-                      <strong>Interests:</strong> Computer Vision, Machine Learning, Reinforcement Learning, Natural Language Processing
-                    </p>
-
-                    <h2>Courses</h2>
-                    <p>
-                      <strong>Taken:</strong> Computer Programming, Object-Oriented Programming, Data Structure, Introduction to Computer Science, Programming Languages Structure, Algorithm Analysis, Computer Vision, Computer System, Computer Network, Introduction to AI Research, Operating System, Computer Architecture, Machine Learning, Reinforcement Learning, Distributed Learning, Deep Neural Networks<br>
-                      <strong>In Progress:</strong> Data Privacy, Large Language Models, AI Systems, Introduction to Data Visualization
-                    </p>
+                    <!-- Skills -->
+                    <h2>Skills</h2>
+                    <table class="skills-table">
+                      <tr>
+                        <td>Languages</td>
+                        <td>Python, C/C++</td>
+                      </tr>
+                      <tr>
+                        <td>Interests</td>
+                        <td>Computer Vision, Video-Language Understanding, Vision for Robotics, Reinforcement Learning</td>
+                      </tr>
+                      <tr>
+                        <td>Human Languages</td>
+                        <td>Korean (native), English (OPIc IH)</td>
+                      </tr>
+                    </table>
 
                   </td>
                 </tr>
               </tbody>
             </table>
-            <footer style="text-align:right; margin-top:40px;">
-              <p>
-                Template by <a href="https://jonbarron.info/">Jon Barron</a>.</a>
+
+            <footer style="text-align:right;margin-top:40px;padding:0 20px 20px;">
+              <p style="font-size:0.85em;color:#999;">
+                Template by <a href="https://jonbarron.info/">Jon Barron</a>.
               </p>
             </footer>
+
           </td>
         </tr>
       </tbody>
